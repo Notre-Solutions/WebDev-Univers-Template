@@ -160,7 +160,7 @@ const works = ({ data }) => {
                           <h3>Vivamus vestibulum</h3>
                           <p>
                             Fusce sed hendrerit augue, a rhoncus velit. In non
-                            lorem mattis, tempor sem sit amet.
+                            lorem mattis, tempor sem sit amet. 
                           </p>
                           <Link to="/work" className="btn btn-default">
                             Discover
