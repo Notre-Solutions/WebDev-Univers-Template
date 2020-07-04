@@ -2,11 +2,12 @@ import React from "react"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import AboutSection from "../components/aboutSection"
 const about = ({ data }) => {
   const { profil } = data.markdownRemark.frontmatter.aboutPage
 
   return (
-    <Layout current='About'>
+    <Layout current="About">
       <div className="section-container">
         <div className="container">
           <div className="row">
@@ -19,39 +20,30 @@ const about = ({ data }) => {
                 <div className="col-md-10 col-md-offset-1">
                   <div className="row">
                     <div className="col-xs-12 col-md-6">
-                      <h3>Consectetur adipiscing elit</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Maecenas luctus at sem quis varius. Class aptent taciti
+                      <AboutSection
+                        title="Consectetur adipiscing"
+                        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus at sem quis varius. Class aptent taciti
                         sociosqu ad litora torquent per conubia nostra, per
-                        inceptos himenaeos. Cras ultrices hendrerit nisl.
-                      </p>
-                      <h3>Ut enim ad minim </h3>
-                      <p>
-                        Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
-                      <h3>Maecenas luctus at sem quis varius</h3>
-                      <p>
-                        Class aptent taciti sociosqu ad litora torquent per
+                        inceptos himenaeos. Cras ultrices hendrerit nisl."
+                      />
+                      <AboutSection
+                        title="Ut enim ad minim"
+                        body="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                      />
+                      <AboutSection
+                        title="Maecenas luctus at sem quis varius"
+                        body="Class aptent taciti sociosqu ad litora torquent per
                         conubia nostra, per inceptos himenaeos. Phasellus
                         iaculis magna sagittis elit sagittis, at hendrerit lorem
                         venenatis. Morbi accumsan iaculis blandit. Cras ultrices
-                        hendrerit nisl.
-                      </p>
+                        hendrerit nisl."
+                      />
                     </div>
                     <div className="col-xs-12 col-md-6">
                       <Img
                         className="img-responsive"
                         alt=""
                         fluid={profil.childImageSharp.fluid}
-                      />
-                      <img
-                        src="./assets/images/profil.jpg"
-                        className="img-responsive"
-                        alt=""
                       />
                     </div>
                   </div>

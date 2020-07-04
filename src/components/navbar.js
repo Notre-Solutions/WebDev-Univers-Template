@@ -3,8 +3,8 @@ import { Link } from "gatsby"
 import classnames from "classnames"
 
 class navbar extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       active: false,
     }
