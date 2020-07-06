@@ -6,20 +6,11 @@ import { Helmet } from "react-helmet"
 import Navbar from "./navbar"
 import Footer from './footer'
 
-function nav(current){
-  if(current === 'Wsork'){
-    return <></>
-  }else{
-    return <Navbar/>
-  }
-  
-}
-
 const Layout = ({ children, current }) => {
   return (
     <main className={`content-wrapper ${current}`}>
       <Helmet></Helmet>
-      {nav(current)}
+      <Navbar/>
       {children}
       {
         ()=>{

@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import classnames from "classnames"
 
 class navbar extends React.Component {
   constructor(props) {

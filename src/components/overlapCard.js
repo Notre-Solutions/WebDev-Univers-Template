@@ -11,7 +11,7 @@ const overlapCard = ({ fluid, title, subtitle, body, link }) => {
         <h4>{title}</h4>
         <h3>{subtitle}</h3>
         <p>{body}</p>
-        <Link to={`"/${link["slug"]}`} className="btn btn-default">
+        <Link to={`/${link["slug"]}`} className="btn btn-default">
           {link["text"]}
         </Link>
       </div>

@@ -10,13 +10,14 @@ const work = ({ data }) => {
     work3,
     work4,
   } = data.markdownRemark.frontmatter.workPage
+  console.log(work1, work2, work3,)
   return (
     <Layout current="Work">
       <div className="section-container">
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <Img fluid={work1} className="img-responsive" alt="" />
+              <Img fluid={work1.childImageSharp.fluid} className="img-responsive" alt="" />
               <div className="card-container">
                 <div className="text-center">
                   <h1 className="h2">001 : Fringilla sit amet</h1>
@@ -41,18 +42,18 @@ const work = ({ data }) => {
             <div className="col-md-8 col-md-offset-2 section-container-spacer">
               <div className="row">
                 <div className="col-xs-12 col-md-6">
-                  <Img fluid={work2} className="img-responsive" alt="" />
+                  <Img fluid={work2.childImageSharp.fluid} className="img-responsive" alt="" />
                   <p>Menphis skyline</p>
                 </div>
                 <div className="col-xs-12 col-md-6">
-                  <Img fluid={work3} className="img-responsive" alt="" />
+                  <Img fluid={work3.childImageSharp.fluid} className="img-responsive" alt="" />
                   <p>Menphis skyline</p>
                 </div>
               </div>
             </div>
 
             <div className="col-xs-12">
-              <Img fluid={work4} className="img-responsive" alt="" />
+              <Img fluid={work4.childImageSharp.fluid} className="img-responsive" alt="" />
             </div>
           </div>
         </div>

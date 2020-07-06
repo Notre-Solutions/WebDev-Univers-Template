@@ -486,6 +486,12 @@ th {
   height: auto;
 }
 
+.im2 {
+  width: 10rem !important;
+  position: absolute !important;
+  height: 100% !important;
+}
+
 .img-rounded {
   border-radius: 0;
 }
