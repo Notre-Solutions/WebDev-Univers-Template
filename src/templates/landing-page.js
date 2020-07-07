@@ -6,17 +6,17 @@ import Typed from "../components/typed_animation"
 import BackgroundImage from "gatsby-background-image"
 
 const Landing = ({ data }) => {
-  const { space } = data.markdownRemark.frontmatter.landingPage
+  const { backgroundImage, title } = data.markdownRemark.frontmatter.landingPage
   return (
     <Layout current="landing">
       <BackgroundImage
         className="hero-full-container background-image-container white-text-container"
-        fluid={space}
+        fluid={backgroundImage}
       >
         <Typed
           className=".typed-landing "
           strings={[
-            "Hello and welcome. ^1000 \nWe are Notre Studio. ^1000 \nEnjoy. &times; &copy;",
+            title,
           ]}
         />
       </BackgroundImage>
@@ -31,7 +31,8 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         landingPage {
-          space {
+          title
+          backgroundImage {
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
                 ...GatsbyImageSharpFluid

@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import AboutSection from "../components/aboutSection"
 const about = ({ data }) => {
-  const { profil, sections, title } = data.markdownRemark.frontmatter.aboutPage
+  const { profileImage, sections, title } = data.markdownRemark.frontmatter.aboutPage
   console.log(sections)
   return (
     <Layout current="About">
@@ -30,7 +30,7 @@ const about = ({ data }) => {
                       <Img
                         className="img-responsive"
                         alt=""
-                        fluid={profil.childImageSharp.fluid}
+                        fluid={profileImage.childImageSharp.fluid}
                       />
                     </div>
                   </div>
@@ -50,7 +50,7 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         aboutPage {
-          profil {
+          profileImage {
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
                 ...GatsbyImageSharpFluid

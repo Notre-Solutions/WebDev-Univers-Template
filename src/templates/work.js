@@ -5,36 +5,28 @@ import { graphql } from "gatsby"
 
 const work = ({ data }) => {
   const {
-    work1,
-    work2,
-    work3,
-    work4,
+    title, subtitle, quote, backgroundImage, work1, work2, work3Img
   } = data.markdownRemark.frontmatter.workPage
-  console.log(work1, work2, work3,)
   return (
     <Layout current="Work">
       <div className="section-container">
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <Img fluid={work1.childImageSharp.fluid} className="img-responsive" alt="" />
+              <Img fluid={backgroundImage.childImageSharp.fluid} className="img-responsive" alt="" />
               <div className="card-container">
                 <div className="text-center">
-                  <h1 className="h2">001 : Fringilla sit amet</h1>
+                  <h1 className="h2">{title}</h1>
                 </div>
                 <p>
-                  Nulla facilisi. Vivamus vestibulum, elit in scelerisque
-                  ultricies, nisl nunc pulvinar ligula, id sodales arcu sapien
-                  in nisi. Quisque libero enim, mattis non augue posuere,
-                  venenatis dapibus urna.
+                  {subtitle}
                 </p>
 
                 <blockquote>
                   <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer posuere erat a ante."
+                    "{quote.body}"
                   </p>
-                  <small className="pull-right">Irina Martin</small>
+                  <small className="pull-right">{quote.author}</small>
                 </blockquote>
               </div>
             </div>
@@ -42,18 +34,18 @@ const work = ({ data }) => {
             <div className="col-md-8 col-md-offset-2 section-container-spacer">
               <div className="row">
                 <div className="col-xs-12 col-md-6">
-                  <Img fluid={work2.childImageSharp.fluid} className="img-responsive" alt="" />
-                  <p>Menphis skyline</p>
+                  <Img fluid={work1.img.childImageSharp.fluid} className="img-responsive" alt="" />
+                  <p>{work1.text}</p>
                 </div>
                 <div className="col-xs-12 col-md-6">
-                  <Img fluid={work3.childImageSharp.fluid} className="img-responsive" alt="" />
-                  <p>Menphis skyline</p>
+                  <Img fluid={work2.img.childImageSharp.fluid} className="img-responsive" alt="" />
+                  <p>{work2.text}</p>
                 </div>
               </div>
             </div>
 
             <div className="col-xs-12">
-              <Img fluid={work4.childImageSharp.fluid} className="img-responsive" alt="" />
+              <Img fluid={work3Img.childImageSharp.fluid} className="img-responsive" alt="" />
             </div>
           </div>
         </div>
@@ -69,28 +61,38 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         workPage {
-          work1 {
+          title
+          subtitle
+          quote{
+            body
+            author
+          }
+          backgroundImage  {
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
+          }
+          work1 {
+            text
+            img{
+            childImageSharp {
+              fluid(maxWidth: 10000, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }}
           }
           work2 {
+            text
+            img{
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
-            }
+            }}
           }
-          work3 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          work4 {
+          work3Img {
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
                 ...GatsbyImageSharpFluid

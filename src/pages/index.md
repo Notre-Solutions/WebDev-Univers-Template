@@ -1,6 +1,6 @@
 ---
 templateKey: landing-page
 landingPage:
-  title: Do some work
-  space: ../img/space.jpg
+  title: "Hello and welcome. ^1000 \nWe are Notre Studio. ^1000 \nEnjoy. &times; &copy;"
+  backgroundImage: ../img/space.jpg
 ---

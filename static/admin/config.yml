@@ -37,11 +37,13 @@ collections:
         fields:
           - {label: "Template Key", name: templateKey, widget: "hidden", default: "landing-page"}
           - {label: "Title", name: title, widget: string, default: "Do something"}
+          - {label: "Background Image", name: "background", widget: image}
       - file: "src/pages/about/index.md"    
         label: "About Page"
         name: "about"
         fields:
-          - {label: "Template Key", name: templateKey, widget: "hidden", default: "landing-page"}
+          - {label: "Template Key", name: templateKey, widget: "hidden", default: "about"}
+          - {label: "Profile Image", name: "profileImage", widget: image}
           - {label: "About Page", name: aboutPage, widget: object, fields: [
             {label: "Title", name: title, widget: string},
             {label: "Sections", name: "sections", widget: list, fields: [
@@ -53,7 +55,7 @@ collections:
         label: "Contact Page"
         name: "contact"
         fields:
-          - {label: "Template Key", name: templateKey, widget: "hidden", default: "landing-page"}
+          - {label: "Template Key", name: templateKey, widget: "hidden", default: "contact"}
           - {label: "Contact Page", name: contactPage, widget: object, fields: [
             {label: "Title", name: title, widget: string},
             {label: "Contact Form", name: "contactForm", widget: object, fields: [
@@ -61,12 +63,56 @@ collections:
               {label: "Email", name: "email", widget: string, required: true},
               {label: "Address", name: "address", widget: string, required: true},
               {label: "Subtitle", name: "subtitle", widget: string, required: true},
-              {label: "links", name: "body", widget: object, fields: [
+              {label: "links", name: "links", widget: object, fields: [
                 {label: "Facebook", name: "facebook", widget: string, required: true},
                 {label: "Twitter", name: "twitter", widget: string, required: true},
                 {label: "LinkedIn", name: "linkedin", widget: string, required: true},
               ]},
             ]}
+          ]}
+      - file: "src/pages/works/index.md"    
+        label: "Works Page"
+        name: "works"
+        fields:
+          - {label: "Template Key", name: templateKey, widget: "hidden", default: "works"}
+          - {label: "Works Page", name: worksPage, widget: object, fields: [
+            {label: "Title", name: title, widget: string},
+            {label: "Subtitle", name: subtitle, widget: string},
+            {label: "Cards", name: "cards", widget: list, fields: [
+              {label: "Card", name: "card", widget: object, fields: [
+                {label: "Title", name: title, widget: string},
+                {label: "Subtitle", name: subtitle, widget: string},
+                {label: "Body", name: body, widget: string},
+                {label: "Link", name: link, widget: object, fields: [
+                  {label: "Page", name: slug, widget: string},
+                  {label: "Text", name: text, widget: string},
+                ]},
+                {label: "Image", name: img, widget: image},
+              ]}
+            ]}
+          ]}
+      - file: "src/pages/work/index.md"    
+        label: "Work Page"
+        name: "work"
+        fields: 
+          - {label: "Template Key", name: templateKey, widget: "hidden", default: "work"}
+          - {label: "Work Page", name: workPage, widget: object, fields: [
+            {label: "Title", name: title, widget: string},
+            {label: "Subtitle", name: subtitle, widget: string},
+            {label: "Background Image", name: backgroundImage, widget: image},
+            {label: "Quote", name: quote, widget: object, fields: [
+              {label: "Body", name: body, widget: string},
+              {label: "Author", name: author, widget: string},
+            ]},
+            {label: "Work 1", name: work1, widget: object, fields: [
+              {label: "Image", name: img, widget: image},
+              {label: "Text", name: text, widget: string},
+            ]},
+            {label: "Work 2", name: work2, widget: object, fields: [
+              {label: "Image", name: img, widget: image},
+              {label: "Text", name: text, widget: string},
+            ]},
+            {label: "Work 3 Image", name: work3Img, widget: image},
           ]}
       
       

@@ -4,8 +4,12 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import OverlayCard from "../components/overlapCard"
 const works = ({ data }) => {
-  const { work1, work2, work3 } = data.markdownRemark.frontmatter.worksPage
-  console.log(work1)
+  const {
+    cards,
+    title,
+    subtitle,
+  } = data.markdownRemark.frontmatter.worksPage
+  console.log(cards)
   return (
     <Layout current="Works">
       <div className="section-container">
@@ -13,68 +17,38 @@ const works = ({ data }) => {
           <div className="row">
             <div className="col-sm-8 col-sm-offset-2 section-container-spacer">
               <div className="text-center">
-                <h1 className="h2">02 : Works</h1>
-                <p>
-                  Nulla facilisi. Vivamus vestibulum, elit in scelerisque
-                  ultricies, nisl nunc pulvinar ligula, id sodales arcu sapien
-                  in nisi. Quisque libero enim, mattis non augue posuere,
-                  venenatis dapibus urna.
-                </p>
+                <h1 className="h2">{title}</h1>
+                <p>{subtitle}</p>
               </div>
             </div>
 
             <div className="col-md-12">
               <div id="myCarousel" className="carousel slide projects-carousel">
-                {/* <!-- Carousel items --> */}
+                {/* TODO: Add carousel if needed*/}
                 <div className="carousel-inner">
                   <div className="item active">
                     <div className="row">
-                      <div className="col-sm-4">
-                        <OverlayCard
-                          fluid={work1.childImageSharp.fluid}
-                          title="001/006"
-                          subtitle="Fringilla sit amet"
-                          body="Nulla facilisi. Vivamus vestibulum, elit in scelerisque ultricies."
-                          link={{
-                            slug: "work",
-                            text: "Discover",
-                          }}
-                        />
-                      </div>
-                      <div className="col-sm-4">
-                      <OverlayCard
-                          fluid={work2.childImageSharp.fluid}
-                          title="002/006"
-                          subtitle="Nulla scelerisque"
-                          body="Proin pharetra metus id iaculis dignissim. In aliquet lorem ut ex ullamcorper."
-                          link={{
-                            slug: "work",
-                            text: "Discover",
-                          }}
-                        />
-                      </div>
-                      <div className="col-sm-4">
-                      <OverlayCard
-                          fluid={work3.childImageSharp.fluid}
-                          title="003/006"
-                          subtitle="Vivamus vestibulum"
-                          body="Fusce sed hendrerit augue, a rhoncus velit. In non lorem mattis, tempor sem sit amet."
-                          link={{
-                            slug: "work",
-                            text: "Discover",
-                          }}
-                        />
-                      </div>
+                      {cards.map(item => {
+                        const { card } = item
+                        return (
+                          <div className="col-sm-4">
+                            <OverlayCard
+                              fluid={card.img.childImageSharp.fluid}
+                              title={card.title}
+                              subtitle={card.subtitle}
+                              body={card.body}
+                              link={{
+                                slug: card.link.slug,
+                                text: card.link.text,
+                              }}
+                            />
+                          </div>
+                        )
+                      })}
                     </div>
-                    {/* <!--/row--> */}
                   </div>
-
-                  {/* <!--/item--> */}
                 </div>
-                {/* TODO: Add carousel if needed*/}
               </div>
-
-              {/* <!--/myCarousel--> */}
             </div>
           </div>
         </div>
@@ -90,24 +64,23 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         worksPage {
-          work1 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+          title
+          subtitle
+          cards {
+            card {
+              title
+              subtitle
+              body
+              link {
+                slug
+                text
               }
-            }
-          }
-          work2 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          work3 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+              img {
+                childImageSharp {
+                  fluid(maxWidth: 10000, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
             }
           }

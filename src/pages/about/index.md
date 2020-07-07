@@ -2,7 +2,7 @@
 templateKey: about
 aboutPage:
   title: "01 : About me"
-  profil: ../../img/profil.jpg
+  profileImage: ../../img/profil.jpg
   sections:
     - title: Consectetur adipiscing
       body: >-
