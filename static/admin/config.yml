@@ -44,7 +44,7 @@ collections:
           - {label: "Template Key", name: templateKey, widget: "hidden", default: "landing-page"}
           - {label: "About Page", name: aboutPage, widget: object, fields: [
             {label: "Title", name: title, widget: string},
-            {label: "Sections", name: "sections", widget: list, fields:[
+            {label: "Sections", name: "sections", widget: list, fields: [
               {label: "Title", name: "title", widget: string, required: true},
               {label: "Body", name: "body", widget: string, required: true},
             ]}
