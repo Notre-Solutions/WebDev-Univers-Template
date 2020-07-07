@@ -36,16 +36,19 @@ collections:
         name: "landingPage"
         fields:
           - {label: "Template Key", name: templateKey, widget: "hidden", default: "landing-page"}
-          - {label: "Title", name: title, widget: string, default: "Do something"}
-          - {label: "Background Image", name: "background", widget: image}
+          - {label: "About Page", name: aboutPage, widget: object, fields: [
+            {label: "Title", name: title, widget: string},
+            {label: "Background Image", name: "background", widget: image},
+          ]}
+          
       - file: "src/pages/about/index.md"    
         label: "About Page"
         name: "about"
         fields:
           - {label: "Template Key", name: templateKey, widget: "hidden", default: "about"}
-          - {label: "Profile Image", name: "profileImage", widget: image}
           - {label: "About Page", name: aboutPage, widget: object, fields: [
             {label: "Title", name: title, widget: string},
+            {label: "Profile Image", name: "profileImage", widget: image},
             {label: "Sections", name: "sections", widget: list, fields: [
               {label: "Title", name: "title", widget: string, required: true},
               {label: "Body", name: "body", widget: string, required: true},
