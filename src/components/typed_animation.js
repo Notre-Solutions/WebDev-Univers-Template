@@ -39,11 +39,6 @@ class TypedReactDemo extends React.Component {
             }}
           />
         </div>
-        {/* <button onClick={() => this.typed.toggle()}>Toggle</button>
-        <button onClick={() => this.typed.start()}>Start</button>
-        <button onClick={() => this.typed.stop()}>Stop</button>
-        <button onClick={() => this.typed.reset()}>Reset</button>
-        <button onClick={() => this.typed.destroy()}>Destroy</button> */}
       </div>
     )
   }
