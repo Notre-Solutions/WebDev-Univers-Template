@@ -8,21 +8,22 @@ class navbar extends React.Component {
     this.state = {
       collapsed: true,
       in: false,
-      collapsing: false,
+      collapse: 'collapse',
+      aria: false,
+      height: {height: '1px'}
     }
     this.toggleClass = this.toggleClass.bind(this)
   }
   toggleClass() {
     const collapsed = this.state.collapsed
-    this.setState({ collapsed: !collapsed, collapsing: collapsed })
+    this.setState({ collapsed: !collapsed, collapse: 'collapsing', aria: collapsed?false:true, height: collapsed?{height: '238px'}:{height:'1px'},in: false})
     setTimeout(
-      () => this.setState({ collapsing: !collapsed, in: collapsed }),
+      () => this.setState({ collapse: 'collapse', in: collapsed,}), //
       300
     )
   }
   render() {
-    // <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="true">
-    // <div class="navbar-collapse collapse in" id="navbar-collapse" aria-expanded="true" style="">
+   
 
     return (
       <header>
@@ -32,12 +33,11 @@ class navbar extends React.Component {
               type="button"
               className={classnames("navbar-toggle", {
                 collapsed: this.state.collapsed,
-                collapsing: this.state.collapsing,
               })}
               onClick={this.toggleClass}
-              // data-toggle="collapse"
-              // data-target="#navbar-collapse"
-              // aria-expanded="false"
+              data-toggle="collapse"
+              data-target="#navbar-collapse"
+              aria-expanded={this.state.aria}
             >
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
@@ -46,10 +46,10 @@ class navbar extends React.Component {
             </button>
 
             <div
-              className={classnames("collapse navbar-collapse", {
+              className={classnames(`navbar-collapse ${this.state.collapse}`, {
                 in: this.state.in,
               })}
-              id="navbar-collapse"
+              id="navbar-collapse" aria-expanded={this.state.aria} style={this.state.height}
             >
               <ul className="nav navbar-nav ">
                 <li>
