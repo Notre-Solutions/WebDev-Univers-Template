@@ -5,7 +5,13 @@ import { graphql } from "gatsby"
 
 const work = ({ data }) => {
   const {
-    title, subtitle, quote, backgroundImage, work1, work2, work3Img
+    title,
+    subtitle,
+    quote,
+    backgroundImage,
+    work1,
+    work2,
+    work3Img,
   } = data.markdownRemark.frontmatter.workPage
   return (
     <Layout current="Work">
@@ -13,19 +19,19 @@ const work = ({ data }) => {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <Img fluid={backgroundImage.childImageSharp.fluid} className="img-responsive" alt="" />
+              <Img
+                fluid={backgroundImage.childImageSharp.fluid}
+                className="img-responsive"
+                alt=""
+              />
               <div className="card-container">
                 <div className="text-center">
                   <h1 className="h2">{title}</h1>
                 </div>
-                <p>
-                  {subtitle}
-                </p>
+                <p>{subtitle}</p>
 
                 <blockquote>
-                  <p>
-                    "{quote.body}"
-                  </p>
+                  <p>"{quote.body}"</p>
                   <small className="pull-right">{quote.author}</small>
                 </blockquote>
               </div>
@@ -34,18 +40,30 @@ const work = ({ data }) => {
             <div className="col-md-8 col-md-offset-2 section-container-spacer">
               <div className="row">
                 <div className="col-xs-12 col-md-6">
-                  <Img fluid={work1.img.childImageSharp.fluid} className="img-responsive" alt="" />
+                  <Img
+                    fluid={work1.img.childImageSharp.fluid}
+                    className="img-responsive"
+                    alt=""
+                  />
                   <p>{work1.text}</p>
                 </div>
                 <div className="col-xs-12 col-md-6">
-                  <Img fluid={work2.img.childImageSharp.fluid} className="img-responsive" alt="" />
+                  <Img
+                    fluid={work2.img.childImageSharp.fluid}
+                    className="img-responsive"
+                    alt=""
+                  />
                   <p>{work2.text}</p>
                 </div>
               </div>
             </div>
 
             <div className="col-xs-12">
-              <Img fluid={work3Img.childImageSharp.fluid} className="img-responsive" alt="" />
+              <Img
+                fluid={work3Img.childImageSharp.fluid}
+                className="img-responsive"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -63,39 +81,41 @@ export const pageQuery = graphql`
         workPage {
           title
           subtitle
-          quote{
+          quote {
             body
             author
           }
-          backgroundImage  {
+          backgroundImage {
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }
           work1 {
             text
-            img{
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+            img {
+              childImageSharp {
+                fluid(maxWidth: 10000, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
               }
-            }}
+            }
           }
           work2 {
             text
-            img{
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+            img {
+              childImageSharp {
+                fluid(maxWidth: 10000, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
               }
-            }}
+            }
           }
           work3Img {
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }

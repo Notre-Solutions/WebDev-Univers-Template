@@ -4,7 +4,11 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import AboutSection from "../components/aboutSection"
 const about = ({ data }) => {
-  const { profileImage, sections, title } = data.markdownRemark.frontmatter.aboutPage
+  const {
+    profileImage,
+    sections,
+    title,
+  } = data.markdownRemark.frontmatter.aboutPage
   console.log(sections)
   return (
     <Layout current="About">
@@ -20,9 +24,12 @@ const about = ({ data }) => {
                 <div className="col-md-10 col-md-offset-1">
                   <div className="row">
                     <div className="col-xs-12 col-md-6">
-                      {sections.map((section)=>{
-                        return(
-                          <AboutSection title={section.title} body={section.body}/>
+                      {sections.map(section => {
+                        return (
+                          <AboutSection
+                            title={section.title}
+                            body={section.body}
+                          />
                         )
                       })}
                     </div>
@@ -53,11 +60,11 @@ export const pageQuery = graphql`
           profileImage {
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }
-          sections{
+          sections {
             title
             body
           }

@@ -4,11 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import OverlayCard from "../components/overlapCard"
 const works = ({ data }) => {
-  const {
-    cards,
-    title,
-    subtitle,
-  } = data.markdownRemark.frontmatter.worksPage
+  const { cards, title, subtitle } = data.markdownRemark.frontmatter.worksPage
   console.log(cards)
   return (
     <Layout current="Works">
@@ -78,7 +74,7 @@ export const pageQuery = graphql`
               img {
                 childImageSharp {
                   fluid(maxWidth: 10000, quality: 100) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                   }
                 }
               }

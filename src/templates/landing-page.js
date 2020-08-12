@@ -13,12 +13,7 @@ const Landing = ({ data }) => {
         className="hero-full-container background-image-container white-text-container"
         fluid={backgroundImage}
       >
-        <Typed
-          className=".typed-landing "
-          strings={[
-            title,
-          ]}
-        />
+        <Typed className=".typed-landing " strings={[title]} />
       </BackgroundImage>
     </Layout>
   )
@@ -35,7 +30,7 @@ export const pageQuery = graphql`
           backgroundImage {
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }
